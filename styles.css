@@ -13,6 +13,7 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
   background: var(--page-bg);
   color: var(--text);
   line-height: 1.45;
@@ -21,42 +22,45 @@ body {
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .page-wrapper {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   background: var(--surface);
 }
 
 .hero {
   position: relative;
-  min-height: 420px;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(rgba(16, 63, 115, 0.48), rgba(16, 63, 115, 0.6)), url("./car.png");
-  background-size: cover;
-  background-position: center;
+  background-image: url("./car.png");
+  background-size: stretch;
+  background-position: 30% 80%;
   background-repeat: no-repeat;
 }
 
 .topbar {
   padding: 1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
 }
 
 .logo {
   display: block;
-  height: 56px;
+  height: 100px;
   width: auto;
+  margin: 1rem 0
 }
 
 .hero-content {
+  min-height: 220px;
   margin-top: auto;
-  padding: 2.5rem 1.25rem;
-  max-width: 620px;
-  color: #fff;
+  padding: .5rem 1.25rem;
+  color: var(--text);
+  display: flex;
+  align-items: flex-end;
+  background-image: linear-gradient(to top, var(--surface), transparent);
 }
 
 h1,
@@ -66,15 +70,15 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(2rem, 4.5vw, 2.5rem);
 }
 
 h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.2rem);
 }
 
 h3 {
-  font-size: clamp(1.3rem, 2.7vw, 1.9rem);
+  font-size: clamp(1.3rem, 2.7vw, 1.5rem);
 }
 
 .title {
@@ -82,30 +86,30 @@ h3 {
 }
 
 section {
-  padding: 0 1.25rem;
+  padding: 0 1rem;
 }
 
 .subtitle {
   font-size: clamp(1.25rem, 2.7vw, 2rem);
-  margin: 0 0 0.8rem;
+  margin: 0;
 }
 
 .phone {
   margin: 0;
   color: var(--accent);
-  font-size: clamp(1.8rem, 4.3vw, 3rem);
+  font-size: clamp(2rem, 4.3vw, 2.5rem);
   font-weight: 800;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .card {
   border-radius: 10px;
-  padding: 1.1rem;
+  padding: 2rem 1rem;
 }
 
 .card--bg {
@@ -126,11 +130,5 @@ li {
 }
 
 @media (max-width: 700px) {
-  .hero {
-    min-height: 360px;
-  }
 
-  .logo {
-    height: 46px;
-  }
 }
