@@ -17,6 +17,7 @@ body {
   background: var(--page-bg);
   color: var(--text);
   line-height: 1.45;
+  scroll-behavior: smooth;
 }
 
 .main-content {
@@ -181,7 +182,6 @@ li {
 
   .hero-content {
     min-height: 100svh;
-    justify-content: flex-end;
     padding-bottom: 5rem;
   }
 
