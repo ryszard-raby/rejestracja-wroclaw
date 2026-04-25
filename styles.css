@@ -174,14 +174,13 @@ li {
   .page-wrapper {
     height: 100dvh;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     -webkit-overflow-scrolling: touch;
   }
 
   .hero {
     min-height: 100svh;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
     background-position: 20% 80%;
   }
 
@@ -190,9 +189,6 @@ li {
     padding-bottom: 5rem;
   }
 
-  .main-content > section {
-    scroll-snap-align: start;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
