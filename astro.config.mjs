@@ -1,5 +1,14 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  output: 'static'
+  output: 'static',
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'legacy'
+        }
+      }
+    }
+  }
 });
