@@ -145,6 +145,37 @@ li {
   transform: rotate(45deg) translateY(-1px);
 }
 
+.lang-switcher {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.25rem;
+  z-index: 10;
+}
+
+.lang-switcher__item {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+  background: rgb(255 255 255 / 0.6);
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgb(255 255 255 / 0.9);
+  }
+
+  &--active {
+    background: var(--text);
+    color: #fff;
+    pointer-events: none;
+  }
+}
+
 @keyframes nudge-down {
   0%,
   100% {

@@ -1,3 +1,64 @@
 ---
-return Astro.redirect('/pl/');
+import AboutCard from '../components/AboutCard.astro';
+import ListCard from '../components/ListCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { translations } from '../i18n/translations';
+import logo from '../../logo.png';
+import heroImage from '../../car.png';
+
+const lang = 'pl';
+const t = translations[lang];
 ---
+
+<BaseLayout title={t.seoTitle} description={t.seoDescription} lang={lang}>
+  <div class="page-wrapper">
+    <header class="hero" style={`--hero-image: url(${heroImage.src})`}>
+      <div class="hero-content">
+        <img class="logo" src={logo.src} alt="Promoto" />
+        <h1>{t.hero.heading}</h1>
+        <p class="subtitle">{t.hero.subtitle}</p>
+        <p class="phone">{t.hero.phone}</p>
+      </div>
+
+      <nav class="lang-switcher">
+        <span class="lang-switcher__item lang-switcher__item--active">PL</span>
+        <a class="lang-switcher__item" href="/en/">EN</a>
+      </nav>
+
+      <a class="hero-scroll-indicator" href="#services" aria-label={t.hero.scrollLabel}>
+        <span class="arrow" aria-hidden="true"></span>
+      </a>
+    </header>
+
+    <main class="main-content">
+      <section class="services" id="services">
+        <h2 class="title">{t.servicesTitle}</h2>
+        <div class="cards">
+          <ListCard title={t.communicationOffices.title} items={t.communicationOffices.items} background />
+          <ListCard title={t.taxOffices.title} items={t.taxOffices.items} background />
+        </div>
+      </section>
+
+      <section>
+        <ListCard title={t.deadlines.title} items={t.deadlines.items} background />
+      </section>
+
+      <section class="account">
+        <article class="card">
+          <h3>{t.exciseAccount.title}</h3>
+          <p>{t.exciseAccount.office}</p>
+          <p>{t.exciseAccount.ibanLabel}: {t.exciseAccount.iban}</p>
+        </article>
+      </section>
+
+      <section>
+        <AboutCard
+          title={t.about.title}
+          description={t.about.description}
+          company={t.about.company}
+          phone={t.about.phone}
+        />
+      </section>
+    </main>
+  </div>
+</BaseLayout>

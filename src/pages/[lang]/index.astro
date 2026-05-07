@@ -10,9 +10,14 @@ export function getStaticPaths() {
   return supportedLangs.map((lang) => ({ params: { lang } }));
 }
 
-const routeLang = Astro.params.lang as Lang | undefined;
+const routeLang = Astro.params.lang as Lang;
+
+if (routeLang === 'pl') {
+  return Astro.redirect('/');
+}
+
 const lang: Lang =
-  routeLang && routeLang in translations ? (routeLang as Lang) : 'en';
+  routeLang && routeLang in translations ? routeLang : 'en';
 const t = translations[lang];
 ---
 
@@ -25,6 +30,11 @@ const t = translations[lang];
         <p class="subtitle">{t.hero.subtitle}</p>
         <p class="phone">{t.hero.phone}</p>
       </div>
+
+      <nav class="lang-switcher">
+        <a class="lang-switcher__item" href="/">PL</a>
+        <span class="lang-switcher__item lang-switcher__item--active">EN</span>
+      </nav>
 
       <a class="hero-scroll-indicator" href="#services" aria-label={t.hero.scrollLabel}>
         <span class="arrow" aria-hidden="true"></span>
