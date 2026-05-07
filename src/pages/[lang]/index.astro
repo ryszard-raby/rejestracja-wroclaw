@@ -18,6 +18,12 @@ if (routeLang === 'pl') {
 
 const lang: Lang =
   routeLang && routeLang in translations ? routeLang : 'en';
+
+const langLabels: Record<Lang, string> = {
+  pl: 'PL',
+  en: 'EN',
+  uk: 'UK'
+};
 const t = translations[lang];
 ---
 
@@ -32,8 +38,13 @@ const t = translations[lang];
       </div>
 
       <nav class="lang-switcher">
-        <a class="lang-switcher__item" href="/">PL</a>
-        <span class="lang-switcher__item lang-switcher__item--active">EN</span>
+        {supportedLangs.map((code) =>
+          code === lang ? (
+            <span class="lang-switcher__item lang-switcher__item--active">{langLabels[code]}</span>
+          ) : (
+            <a class="lang-switcher__item" href={code === 'pl' ? '/' : `/${code}/`}>{langLabels[code]}</a>
+          )
+        )}
       </nav>
 
       <a class="hero-scroll-indicator" href="#services" aria-label={t.hero.scrollLabel}>
